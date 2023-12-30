@@ -1,0 +1,20 @@
+class Solution {
+    public int minSteps(String s, String t) {
+        int[] arrS = func(s);
+        int[] arrT = func(t);
+
+        int steps = 0;
+        for(int i = 0; i < arrS.length; i++) {
+            steps += Math.abs(arrS[i] - arrT[i]);
+        }
+        return steps;
+
+    }
+    public int[] func(String s){
+        int[] arr = new int[26];
+        for(char c : s.toCharArray()) {
+            arr[c - 'a']++;
+        }
+        return arr;
+    }
+}
