@@ -1,0 +1,24 @@
+class Solution {
+    public List<Long> maximumEvenSplit(long finalSum) {
+        if(finalSum % 2 != 0) {
+            return new ArrayList<>();
+        }
+
+        List<Long> result = new ArrayList<>();
+        long currentNum = 0;
+        long currentSum = 0;
+
+        while (currentSum < finalSum) {
+            currentNum += 2;
+            currentSum += currentNum;
+            result.add(currentNum);
+        }
+
+        if(currentSum != finalSum) {
+            long diff = currentSum - finalSum;
+            result.remove((int) (diff / 2) - 1);
+        }
+
+        return result;
+    }
+}
